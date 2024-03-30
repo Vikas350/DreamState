@@ -81,6 +81,7 @@ function SignUp() {
         <button
           disabled={loading}
           className="bg-green-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-60"
+          
         >
           {loading ? "Loading..." : "Sign Up"}
         </button>
