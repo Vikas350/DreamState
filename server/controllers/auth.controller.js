@@ -35,9 +35,9 @@ export const signin = async (req, res, next) => {
     // 3. Save this token inside browser cookie
     const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
 
-    // not return the hashed password in the response
-    const {password: pass, ...rest} = validUser._doc;
-    
+    // not return the hashed password in the response(so seperate password and other data)
+    const { password: pass, ...rest } = validUser._doc;
+
     res
       .cookie("access_token", token, { httpOnly: true })
       .status(200)

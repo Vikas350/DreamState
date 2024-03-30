@@ -6,7 +6,7 @@ function SignUp() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -15,7 +15,7 @@ function SignUp() {
     });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
@@ -38,14 +38,13 @@ function SignUp() {
       }
 
       setLoading(false);
-      setError(null)
+      setError(null);
 
       // navigate to the sign-in page after successful sign-up
-      navigate('/sign-in')
-
+      navigate("/sign-in");
     } catch (error) {
-      setLoading(false)
-      setError(error.message)
+      setLoading(false);
+      setError(error.message);
     }
   };
 
@@ -81,7 +80,6 @@ function SignUp() {
         <button
           disabled={loading}
           className="bg-green-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-60"
-          
         >
           {loading ? "Loading..." : "Sign Up"}
         </button>
