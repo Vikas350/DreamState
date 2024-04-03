@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { errorHandler } from "../utils/error.js";
 
+/**************************************************************************/
 export const signup = async (req, res, next) => {
   // console.log(req.body)
   const { username, email, password } = req.body;
@@ -16,6 +17,7 @@ export const signup = async (req, res, next) => {
   }
 };
 
+/**************************************************************************/
 export const signin = async (req, res, next) => {
   const { email, password } = req.body;
   try {
@@ -47,6 +49,7 @@ export const signin = async (req, res, next) => {
   }
 };
 
+/***************************************************************************/
 export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
