@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js'
+import cookieParser from "cookie-parser";
 
 // config env variables
 dotenv.config()
@@ -25,6 +26,8 @@ app.listen(port, () => {
 
 // create the route
 app.use(express.json()) //this allow us to send the json data to the server 
+app.use(cookieParser()) // this allow us to get cookie token and verify user
+
 app.use('/server/user', userRouter)
 app.use('/server/auth', authRouter)
 

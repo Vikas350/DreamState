@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+// import { FaCheckCircle } from "react-icons/fa";
 import {
   getDownloadURL,
   getStorage,
@@ -79,10 +80,13 @@ function Profile() {
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className="text-green-700">{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
-            <span className="text-indigo-950">
-              Image Successfully uploaded!
-            </span>
+            // <div className="border-red-500 flex text-indigo-950 gap-2">
+            //   <span>
+            //     <FaCheckCircle />
+            //   </span>
+            <span>Image Successfully uploaded!</span>
           ) : (
+            // </div>
             ""
           )}
         </p>
