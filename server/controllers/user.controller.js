@@ -6,6 +6,7 @@ export const test = (req, res) => {
   res.json({ message: "Hello Vikas, this test route is working" });
 };
 
+// controller to update the user profile
 export const updateUser = async (req, res, next) => {
   if (req.user.id !== req.params.id) {
     return next(errorHandler(401, "You can only update your own account!"));
@@ -28,11 +29,26 @@ export const updateUser = async (req, res, next) => {
         },
       },
       { new: true } // this will add the new information to user
-    ); 
+    );
 
     const { password, ...rest } = updatedUser._doc;
     res.status(200).json(rest);
+  } catch (error) {
+    next(error);
+  }
+};
 
+//controller to delte the user
+export const deleteUser = async (req, res, next) => {
+  if (req.user.id !== req.params.id) {
+    return next(errorHandler(401, "You can delete only your own account!"));
+  }
+
+  try {
+    await User.findByIdAndDelete(req.params.id);
+    // always clear the cookies before sending json message
+    res.clearCookie("access_token"); // clear the cookie also after delete the user
+    res.status(200).json({ message: "User has been deleted successfully!" });
   } catch (error) {
     next(error);
   }
