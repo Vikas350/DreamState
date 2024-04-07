@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js'
+import listingRouter from './routes/listing.route.js'
 import cookieParser from "cookie-parser";
 
 // config env variables
@@ -30,6 +31,7 @@ app.use(cookieParser()) // this allow us to get cookie token and verify user
 
 app.use('/server/user', userRouter)
 app.use('/server/auth', authRouter)
+app.use('/server/listing', listingRouter)
 
 // middleware (for error response)
 app.use((err, req, res, next) => {
