@@ -8,7 +8,17 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { app } from "../firebase";
-import { deleteUserFailure, deleteUserStart, deleteUserSuccess, updateUserFailure, updateUserStart, updateUserSuccess } from "../redux/user/userSlice";
+import {
+  deleteUserFailure,
+  deleteUserStart,
+  deleteUserSuccess,
+  signOutUserFailure,
+  signOutUserStart,
+  signOutUserSuccess,
+  updateUserFailure,
+  updateUserStart,
+  updateUserSuccess,
+} from "../redux/user/userSlice";
 
 function Profile() {
   const { currentUser, error, loading } = useSelector((state) => state.user);
@@ -22,8 +32,8 @@ function Profile() {
   // console.log(fileUploadError);
   // console.log(formData);
 
-  const [updateSuccess, setUpdateSuccess] = useState(false)
-  const dispatch = useDispatch()
+  const [updateSuccess, setUpdateSuccess] = useState(false);
+  const dispatch = useDispatch();
 
   // add file to firebase
   useEffect(() => {
@@ -60,56 +70,70 @@ function Profile() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.id] : e.target.value
-    })
-  }
+      [e.target.id]: e.target.value,
+    });
+  };
 
-  // this function is as similar to sign in function 
-  const handleSubmit = async(e) => {
-    e.preventDefault()
-    try{
-      dispatch(updateUserStart())
+  // this function is as similar to sign in function
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      dispatch(updateUserStart());
       const res = await fetch(`/server/user/update/${currentUser._id}`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
-      })
+        body: JSON.stringify(formData),
+      });
 
-      const data = await res.json()
-      if(data.success === false){
-        dispatch(updateUserFailure(data.message))
-        return 
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(updateUserFailure(data.message));
+        return;
       }
 
-      dispatch(updateUserSuccess(data))
-      setUpdateSuccess(true)
-
-    } catch(error){
-      dispatch(updateUserFailure(error.message))
+      dispatch(updateUserSuccess(data));
+      setUpdateSuccess(true);
+    } catch (error) {
+      dispatch(updateUserFailure(error.message));
     }
-  }
+  };
 
-  const handleDeleteUser = async(e) => {
-    try{
-      dispatch(deleteUserStart()) // delete start -> loading start
+  const handleDeleteUser = async (e) => {
+    try {
+      dispatch(deleteUserStart()); // delete start -> loading start
       const res = await fetch(`/server/user/delete/${currentUser._id}`, {
-        method: 'DELETE'
-      })
+        method: "DELETE",
+      });
 
-      const data = res.json()
+      const data = res.json();
 
-      if(data.success === false) {
-        dispatch(deleteUserFailure(data.message))
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
       }
 
-      dispatch(deleteUserSuccess(data))
-
-    } catch(error) {
-      dispatch(deleteUserFailure(error.message))
+      dispatch(signOutUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
     }
-  }
+  };
+
+  const handleSignOut = async (e) => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch("/server/auth/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message));
+    }
+  };
 
   return (
     <div className="p-3 max-w-lg mx-auto">
@@ -170,20 +194,31 @@ function Profile() {
           id="password"
           className="border p-3 rounded-xl"
         />
-        <button disabled={loading } className="bg-green-700 p-3 rounded-xl text-white uppercase hover:opacity-95 disabled:opacity-60">
-          {loading ? 'Loading...' : 'Update'}
+        <button
+          disabled={loading}
+          className="bg-green-700 p-3 rounded-xl text-white uppercase hover:opacity-95 disabled:opacity-60"
+        >
+          {loading ? "Loading..." : "Update"}
         </button>
       </form>
       <div className="flex justify-between mt-3">
-        <span onClick={handleDeleteUser} className="text-red-600 rounded-xl p-3 font-bold cursor-pointer hover:bg-red-100">
+        <span
+          onClick={handleDeleteUser}
+          className="text-red-600 rounded-xl p-3 font-bold cursor-pointer hover:bg-red-100"
+        >
           Delete Account
         </span>
-        <span className="text-red-600 rounded-xl p-3 font-bold cursor-pointer hover:bg-red-100">
+        <span
+          onClick={handleSignOut}
+          className="text-red-600 rounded-xl p-3 font-bold cursor-pointer hover:bg-red-100"
+        >
           Sign Out
         </span>
       </div>
-      <p className="text-red-500 mt-4">{error ? error : ''}</p>
-      <p className="text-center font-semibolde">{updateSuccess ? 'User is updated successfully!' : ''}</p>
+      <p className="text-red-500 mt-4">{error ? error : ""}</p>
+      <p className="text-center font-semibolde">
+        {updateSuccess ? "User is updated successfully!" : ""}
+      </p>
     </div>
   );
 }
