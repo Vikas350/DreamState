@@ -166,7 +166,7 @@ function Profile() {
         return;
       }
 
-      console.log("listing deleted successfully...")
+      console.log("listing deleted successfully...");
       // if the listing delete successfully then update the user listings varibale
       setUserListings((prev) =>
         prev.filter((listing) => listing._id !== listingId)
@@ -305,7 +305,9 @@ function Profile() {
                 >
                   Delete
                 </button>
-                <button className="text-green-600 uppercase">Edit</button>
+                <Link to={`/update-listing/${listing._id}`}>
+                  <button className="text-green-600 uppercase">Edit</button>
+                </Link>
               </div>
             </div>
           ))}
