@@ -202,7 +202,7 @@ function CreateListing() {
             placeholder="Description"
             className="border p-3 rounded-xl"
             id="description"
-            maxLength="62"
+            maxLength="1000"
             minLength="10"
             required
             onChange={handleChange}
