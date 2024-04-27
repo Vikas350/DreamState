@@ -8,7 +8,7 @@ function Header() {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate()
 
-  // we wanted to keep the search query urk updated on changing input valu and vice versa
+  // we wanted to keep the search query url updated on changing input valu and vice versa
   const handleSubmit = (e) => {
     e.preventDefault()
     const urlParams = new URLSearchParams(window.location.search)
