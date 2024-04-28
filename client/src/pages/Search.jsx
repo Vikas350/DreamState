@@ -138,7 +138,7 @@ function Search() {
 
   return (
     <div className="flex flex-col md:flex-row">
-      <div className="p-7 border-b-2 md:border-r-2 md:min-h-screen">
+      <div className="p-7 border-b-2 h-max md:border-r-2 md:min-h-screen md:sticky lg:sticky top-20">
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">
           <div className="flex items-center gap-2">
             <label className="whitespace-nowrap font-semibold">
@@ -239,7 +239,7 @@ function Search() {
         </form>
       </div>
       <div className="flex-1">
-        <h1 className="text-3xl font-semibold border-b p-3 text-green-700 mt-5">
+        <h1 className="text-3xl font-semibold border-b pt-7 pl-7 pb-2 text-green-700">
           Listing Results:
         </h1>
         <div className="p-7 flex flex-wrap gap-4">
