@@ -148,7 +148,7 @@ function Search() {
               type="text"
               id="searchTerm"
               placeholder="Search..."
-              className="border rounded-lg p-3 w-full"
+              className="border rounded-xl p-3 w-full"
               value={sidebardata.searchTerm} //set this value --> if some one start search using search box
               onChange={handleChange}
             />
@@ -223,7 +223,7 @@ function Search() {
             <label className="font-semibold">Sort:</label>
             <select
               id="sort_order"
-              className="border rounded-lg p-3"
+              className="border rounded-xl p-3"
               onChange={handleChange}
               defaultValue={"created_at_desc"}
             >

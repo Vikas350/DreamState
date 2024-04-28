@@ -30,12 +30,12 @@ function Header() {
     <header className="bg-green-100 shadow-md sticky top-0">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
+          <h1 className="font-bold lg:text-2xl sm:text-xl flex flex-wrap">
             <span className="text-green-500">Dream</span>
             <span className="text-green-700">State</span>
           </h1>
         </Link>
-        <form onSubmit={handleSubmit} className="bg-green-50 p-3 rounded-lg flex items-center">
+        <form onSubmit={handleSubmit} className="bg-green-50 p-3 rounded-full flex items-center">
           <input
             type="text"
             placeholder="Search..."
@@ -47,21 +47,21 @@ function Header() {
             <FaSearch className="text-green-600" />
           </button>
         </form>
-        <ul className="flex gap-4">
+        <ul className="flex gap-8 items-center">
           <Link to="/">
-            <li className="hidden sm:inline text-green-700 hover:underline">
+            <li className="hidden font-bold sm:inline text-green-700 hover:underline">
               Home
             </li>
           </Link>
           <Link to="/about">
-            <li className="hidden sm:inline text-green-700 hover:underline">
+            <li className="hidden font-bold sm:inline text-green-700 hover:underline">
               About
             </li>
           </Link>
           <Link to="/profile">
             {currentUser ? (
               <img
-                className="rounded-full h-7 w-7 object-cover"
+                className="rounded-full h-9 w-9 object-cover"
                 src={currentUser.avatar}
                 alt="profile_image"
               />
