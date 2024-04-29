@@ -47,7 +47,7 @@ function Header() {
             <FaSearch className="text-green-600" />
           </button>
         </form>
-        <ul className="flex gap-8 items-center">
+        <ul className="sm:flex gap-8 items-center">
           <Link to="/">
             <li className="hidden font-bold sm:inline text-green-700 hover:underline">
               Home

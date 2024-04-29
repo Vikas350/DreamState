@@ -91,7 +91,7 @@ function Home() {
       </Swiper>
 
       {/* listing results for offer, sale and rent */}
-      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 my-10 pl-20">
+      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 my-10 px-16">
         {offerListings && offerListings.length > 0 && (
           <div className="">
             <div className="my-3">
