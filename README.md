@@ -1,10 +1,10 @@
 # DreamState Real Estate Website
 
-## Overview
+## 🔰 Overview
 
 DreamState is a real estate website that allows users to browse listings, create their listings, and connect with landlords. It provides manual sign-in/sign-up features, OAuth with Google, user profile management, and advanced search functionality.
 
-## Features
+## 🌟 Features
 
 1. **Authentication**
    - Manual sign-in/sign-up
@@ -35,7 +35,7 @@ DreamState is a real estate website that allows users to browse listings, create
      - Typing a message
      - Redirecting to send an email
 
-## Tech Stacks
+## ⚙️ Tech Stacks
 
 - **Frontend**:
   - React.js
@@ -55,7 +55,7 @@ DreamState is a real estate website that allows users to browse listings, create
   - Google OAuth API (for authentication)
   - JWT (for token Authorization)
 
-## Setup Instructions
+## 🛠️ Setup Instructions
 
 1. Clone the repository.
 2. Add the `.env` file in the root folder(MONGO_URI, PORT, JWT_SECRET) and in the client folder(VITE_FIREBASE_API_KEY)
@@ -63,10 +63,10 @@ DreamState is a real estate website that allows users to browse listings, create
 4. Start the frontend and backend servers using `npm run dev`.
 5. Access the application frontend at `http://localhost:5173` and backend API at `http://localhost:3000`.
 
-## Contributing
+## 🤝 Contributing
 
 Just to let you know, pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
+## 📄 License
 
 [MIT](https://choosealicense.com/licenses/mit/)
