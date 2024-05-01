@@ -2,20 +2,20 @@
 
 ## Overview
 
-DreamState is a real estate website that allows users to browse listings, create their own listings, and connect with landlords. It provides features such as manual sign-in/sign-up, OAuth with Google, user profile management, and advanced search functionality.
+DreamState is a real estate website that allows users to browse listings, create their listings, and connect with landlords. It provides manual sign-in/sign-up features, OAuth with Google, user profile management, and advanced search functionality.
 
 ## Features
 
 1. **Authentication**
    - Manual sign-in/sign-up
-   - Sign-in using email through Google OAuth
+   - Sign in using email through Google OAuth
 
 2. **Homepage Listings**
    - Multiple listings displayed with tags (e.g., offers, on sale, rent)
 
 3. **User Profile Management**
    - Update profile information (username, password)
-   - Upload profile image
+   - Upload a profile image
 
 4. **Listing Creation**
    - Users can create site listings with:
@@ -39,32 +39,32 @@ DreamState is a real estate website that allows users to browse listings, create
 
 - **Frontend**:
   - React.js
+  - Redux Toolkit(for State management)
   - Tailwind CSS
-  - Axios (for HTTP requests)
+  - React Icons Library
+  - Swiper Package (for adding Image swiper)
+  - Fetch API (for HTTP requests)
   - React Router (for routing)
-  - Google OAuth API (for authentication)
+  - Firebase Storage Bucket (to store images)
 
 - **Backend**:
   - Node.js
   - Express.js
   - MongoDB (for database)
   - Mongoose (for MongoDB object modeling)
-  - Nodemailer (for sending emails)
-
-- **Authentication**:
-  - Passport.js (for local authentication)
-  - Passport-Google-OAuth20 (for Google OAuth)
+  - Google OAuth API (for authentication)
+  - JWT (for token Authorization)
 
 ## Setup Instructions
 
 1. Clone the repository.
-2. Install dependencies using `npm install`.
-3. Start the frontend and backend servers using `npm start`.
-4. Access the application at `http://localhost:3000`.
+2. Install dependencies using `npm install` in the root folder and the client folder.
+3. Start the frontend and backend servers using `npm run dev`.
+4. Access the application frontend at `http://localhost:5173` and backend API at `http://localhost:3000`.
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Just to let you know, pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
