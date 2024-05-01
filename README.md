@@ -58,9 +58,10 @@ DreamState is a real estate website that allows users to browse listings, create
 ## Setup Instructions
 
 1. Clone the repository.
-2. Install dependencies using `npm install` in the root folder and the client folder.
-3. Start the frontend and backend servers using `npm run dev`.
-4. Access the application frontend at `http://localhost:5173` and backend API at `http://localhost:3000`.
+2. Add the `.env` file in the root folder(MONGO_URI, PORT, JWT_SECRET) and in the client folder(VITE_FIREBASE_API_KEY)
+3. Install dependencies using `npm install` in the root folder and the client folder.
+4. Start the frontend and backend servers using `npm run dev`.
+5. Access the application frontend at `http://localhost:5173` and backend API at `http://localhost:3000`.
 
 ## Contributing
 
