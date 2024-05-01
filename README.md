@@ -17,6 +17,7 @@ DreamState is a real estate website that allows users to browse listings, create
 3. **User Profile Management**
    - Update profile information (username, password)
    - Upload a profile image
+   - Used JWT for user token authorization
 
 4. **Listing Creation**
    - Users can create site listings with:
