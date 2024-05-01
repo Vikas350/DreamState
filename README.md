@@ -26,9 +26,12 @@ DreamState is a real estate website that allows users to browse listings, create
      - Tags (e.g., sale, rent, parking availability, furnished)
      - Discount price for offers
      - Upload site images
+       
+     ![Screenshot from 2024-05-01 12-40-26](https://github.com/Vikas350/DreamState/assets/77073202/bac867df-ccfc-4b1f-9657-5206f1f8fc70)
 
 5. **Advanced Search**
    - Users can search listings using multiple filters
+     ![Screenshot from 2024-05-01 12-32-18](https://github.com/Vikas350/DreamState/assets/77073202/4ad3c3d4-7746-4591-a148-b804b2664512)
 
 6. **Contact Landlord**
    - Users can contact the landlord of a site listing by:
